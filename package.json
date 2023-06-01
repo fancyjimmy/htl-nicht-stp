@@ -30,6 +30,7 @@
 		"postcss-load-config": "^4.0.1",
 		"prettier": "^2.8.0",
 		"prettier-plugin-svelte": "^2.8.1",
+		"supabase": "^1.64.8",
 		"svelte": "^3.54.0",
 		"svelte-check": "^3.0.1",
 		"svelte-preprocess": "^5.0.3",
@@ -42,6 +43,7 @@
 	"type": "module",
 	"dependencies": {
 		"@popperjs/core": "^2.11.8",
+		"@supabase/supabase-js": "^2.24.0",
 		"classnames": "^2.3.2",
 		"firebase": "^9.22.1",
 		"flowbite": "^1.6.5",

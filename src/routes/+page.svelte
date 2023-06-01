@@ -1,5 +1,5 @@
-<script lang="ts">
-import {P} from "flowbite-svelte";
+<script>
+    import {A} from "flowbite-svelte";
 </script>
 
-<P>Hello world</P>
+<A href="\login">Login</A>

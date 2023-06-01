@@ -2,6 +2,8 @@
 import { initializeApp } from "firebase/app";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile, sendEmailVerification, sendPasswordResetEmail} from "firebase/auth";
 import {env} from "$env/dynamic/public";
+
+import { getFirestore } from "firebase/firestore";
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
@@ -19,7 +21,7 @@ const firebaseConfig = {
 export const app = initializeApp(firebaseConfig);
 
 export const auth = getAuth(app);
-
+export const firestore = getFirestore(app);
 
 const actionCodeSettings = {
     url: env.PUBLIC_FIREBASE_CONFIRMATION_EMAIL_REDIRECT,
