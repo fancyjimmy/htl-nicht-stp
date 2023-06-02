@@ -1,54 +1,41 @@
-<script>
-	import "../app.postcss";
-    import Header from './Header.svelte';
-    import './styles.css';
+<script lang="ts">
+	import '../app.css';
+
+	import { invalidate } from '$app/navigation';
+	import { onMount } from 'svelte';
+	import { supabase, session } from '$lib/supabase';
+    import {user} from "../lib/supabase";
+    import Header from "./(public)/Header.svelte";
+	export let data;
+
+	$: $supabase = data.supabase;
+	$: $session = data.session;
+
+	onMount(() => {
+		const {
+			data: { subscription }
+		} = $supabase.auth.onAuthStateChange((event, _session) => {
+			if (_session?.expires_at !== $session?.expires_at) {
+				invalidate('supabase:auth');
+			}
+
+            $session = _session;
+            $user = _session?.user ?? null;
+		});
+
+		return () => subscription.unsubscribe();
+	});
 </script>
 
-<div class="app">
-	<Header></Header>
+<div class="flex flex-col">
+    <Header />
 
-	<main>
-		<slot></slot>
-	</main>
-
-	<footer>
-		<p>visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to learn SvelteKit</p>
-	</footer>
+    <main class="flex-1 relative">
+        <div class="absolute inset-0">
+            <slot />
+        </div>
+    </main>
 </div>
 
 <style>
-	.app {
-		display: flex;
-		flex-direction: column;
-		min-height: 100vh;
-	}
-
-	main {
-		flex: 1;
-		display: flex;
-		flex-direction: column;
-		padding: 1rem;
-		width: 100%;
-		max-width: 64rem;
-		margin: 0 auto;
-		box-sizing: border-box;
-	}
-
-	footer {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		padding: 12px;
-	}
-
-	footer a {
-		font-weight: bold;
-	}
-
-	@media (min-width: 480px) {
-		footer {
-			padding: 12px 0;
-		}
-	}
 </style>
