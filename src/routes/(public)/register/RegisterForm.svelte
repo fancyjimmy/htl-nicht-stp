@@ -57,7 +57,7 @@
         }
     }
 
-    const emailEnd = "@gmail.com";
+    const emailEnd = "@htlstp.at";
     let showError = true;
 
     const dispatch = createEventDispatcher();

@@ -5,10 +5,10 @@
     import {logout} from "$lib/supabase";
 
     export let placement = "bottom";
-    export let triggeredBy = "#avatar-menu";
+    export let triggeredBy = ".avatar";
 </script>
 
-<Dropdown {placement} {triggeredBy}>
+<Dropdown {placement} {triggeredBy} frameClass="z-10 " ulClass="w-60 rounded overflow-hidden">
     <User let:user>
         <DropdownHeader>
             <span class="block text-sm">{user.user_metadata.name}</span>
@@ -16,7 +16,6 @@
         </DropdownHeader>
 
         <DropdownItem href="/account">Account</DropdownItem>
-        <DropdownItem href="/dashboard">Dashboard</DropdownItem>
         <DropdownItem>Einstellungen</DropdownItem>
         <DropdownDivider />
         <DropdownItem class="p-0">
@@ -24,6 +23,7 @@
         </DropdownItem>
         <DropdownDivider />
         <DropdownItem
+                class="pb-4"
                 on:click={() => {
 						logout();
 						goto('/login');
@@ -32,7 +32,7 @@
         </DropdownItem>
 
         <div slot="signedOut">
-            <DropdownItem href="/login">Log In</DropdownItem>
+            <DropdownItem href="/login">Login</DropdownItem>
             <DropdownItem href="/register">Registrieren</DropdownItem>
             <DropdownDivider />
             <DropdownItem class="p-0">

@@ -10,7 +10,7 @@
 	let passwordDirty = false;
 	let passwordTouched = false;
 
-	const emailEnd = '@gmail.com';
+	const emailEnd = '@htlstp.at';
 	let showError = true;
 
 	const dispatch = createEventDispatcher();
@@ -26,7 +26,7 @@
 	class="p-4 max-w-md"
 >
 	<div class="mb-4">
-		<h3 class="text-3xl dark:text-slate-100 mb-2 font-semibold">Log In</h3>
+		<h3 class="text-3xl dark:text-slate-100 mb-2 font-semibold">Login</h3>
 
 		<div class="mb-2">
 			<Label for="input-group-1" class="block mb-2">Schul-Mail</Label>
@@ -52,7 +52,7 @@
 			<TogglePasswordInput required bind:value={password} placeholder="Passwort" />
 		</div>
 
-		<Button class="w-full" type="submit">Log In</Button>
+		<Button class="w-full" type="submit">Login</Button>
 
         <div class="mt-2 text-sm font-bold flex justify-between">
             <A href="/register" color="text-primary-500 dark:text-white">Du hast noch kein Konto?

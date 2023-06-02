@@ -27,7 +27,7 @@
 	});
 </script>
 
-<div class="flex flex-col">
+<div class="flex flex-col h-screen w-screen">
     <Header />
 
     <main class="flex-1 relative">

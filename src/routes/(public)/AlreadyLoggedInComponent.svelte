@@ -1,8 +1,11 @@
 <script lang="ts">
+    import {logout} from "$lib/supabase";
+    import {Button, P} from "flowbite-svelte";
+
     export let user;
 </script>
 
 <div>
-    <p>Du bist schon eingeloggt {user.user_metadata.name}.</p>
-    <p>Log dich zuerst aus.</p>
+    <P class="text-4xl">Du bist schon eingeloggt {user.user_metadata.name}.</P>
+    <Button on:click={logout}>Ausloggen 😽</Button>
 </div>

@@ -165,13 +165,5 @@
 </form>
 
 <style>
-    .scrollbar-hidden::-webkit-scrollbar {
-        display: none;
-    }
 
-    /* Hide scrollbar for IE, Edge and Firefox */
-    .scrollbar-hidden {
-        -ms-overflow-style: none; /* IE and Edge */
-        scrollbar-width: none; /* Firefox */
-    }
 </style>

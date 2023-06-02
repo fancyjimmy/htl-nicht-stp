@@ -5,6 +5,7 @@
     import { supabase } from '$lib/supabase';
     import { onMount } from 'svelte';
     import {invalidateAll} from "$app/navigation";
+    import QuickList from "$lib/components/QuickList.svelte";
 
     let form = {
     };
@@ -12,16 +13,15 @@
     export let data;
 </script>
 
-<div class="p-4 flex flex-col gap-3">
+<div class="p-4 w-full flex flex-col gap-3 h-full">
     <Heading tag="h2">Lehrer</Heading>
-    <div class="rounded-xl border-2 border-black divide-y-2 divide-black overflow-hidden bg-white">
-        {#each data.teachers as teacher}
+
+    <QuickList items={data.teachers} let:item={teacher} class="rounded-xl border-2 border-black divide-y-2 divide-black overflow-y-auto overflow-x-hidden scrollbar-hidden bg-white">
             <div class="p-2">
                 <p class="font-extrabold">{teacher.name}</p>
                 <p class="text-sm italic text-slate-700 uppercase font-semibold">{teacher.abbreviation ?? "Keine Abkürzung"}</p>
             </div>
-        {/each}
-    </div>
+    </QuickList>
 
     <NewDialog
             title="Lehrer Einfügen"

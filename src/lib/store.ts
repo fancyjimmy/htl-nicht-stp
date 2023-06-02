@@ -7,12 +7,11 @@ export const links = derived(user, ($user) => {
         {href: "/about", name: "About"},
     ];
     if ($user === null) {
-        return [...standardLinks, {href: "/login", name: "Log In"}, {href: "/register", name: "Registrieren"}];
+        return [...standardLinks, {href: "/login", name: "Login"}, {href: "/register", name: "Registrieren"}];
     }
 
     return [
         ...standardLinks,
-        {href: "/account", name: "Account"},
         {href: "/test", name: "Tests"},
         {href: "/teacher", name: "Lehrer"},
         {href: "/subject", name: "Fächer"}

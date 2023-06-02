@@ -1,12 +1,14 @@
 <script lang="ts">
     import RegisterForm from './RegisterForm.svelte';
     import {goto} from '$app/navigation';
-    import {A, Alert} from "flowbite-svelte";
+    import {A, Alert, Toast} from "flowbite-svelte";
     import {register} from "$lib/supabase.js";
     import User from "$lib/supabase/User.svelte";
     import AlreadyLoggedInComponent from "../AlreadyLoggedInComponent.svelte";
+    import Icon from "@iconify/svelte";
 
     let error;
+    let toast = false;
 </script>
 
 <div>
@@ -27,23 +29,20 @@
 				}}
             />
 
-
-            {#if error}
-                <Alert color="red">
-                    <p>
-                        {JSON.stringify(error)}
-                        {#if error.code === "auth/email-already-exists"}
-                            Die angegebene E-Mail-Adresse wird bereits von einem bestehenden Benutzer verwendet.
-                        {:else if error.code === "auth/user-not-found" }
-                            Der Benutzer wurde nicht gefunden.
-                        {:else if error.code === "auth/wrong-password"}
-                            Passwort ist falsch
-                        {:else }
-                            {error.code}
-                        {/if}
-                    </p>
-                </Alert>
-            {/if}
+            <Toast color="red" simple position="top-right" class="dark:bg-red-900/70" bind:open={toast}>
+                <div class="flex justify-between">
+                    <div>
+                        {error.message}
+                    </div>
+                    <button
+                            on:click={() => {
+					toast = false;
+				}}
+                    >
+                        <Icon icon="mdi:close" />
+                    </button>
+                </div>
+            </Toast>
         </div>
     </User>
 </div>

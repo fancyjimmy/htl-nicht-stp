@@ -5,6 +5,7 @@
 	import { supabase } from '$lib/supabase';
 	import { onMount } from 'svelte';
     import {invalidateAll} from "$app/navigation";
+    import QuickList from "$lib/components/QuickList.svelte";
 
 	let form = {
 		color: '#13096e'
@@ -13,17 +14,15 @@
 	export let data;
 </script>
 
-<div class="p-4 flex flex-col gap-3">
+<div class="p-4 w-full flex flex-col gap-3 h-full">
     <Heading tag="h2">Fächer</Heading>
-	<div class="rounded-xl border-2 border-black divide-y-2 divide-black overflow-hidden">
-		{#each data.subjects as subject}
-			<div class="p-2" style="background-color: #{subject.color};">
-				<p class="font-extrabold">{subject.name}</p>
-				<p class="text-sm font-semibold">{subject.description}</p>
-			</div>
-		{/each}
-	</div>
 
+    <QuickList items={data.subjects} let:item={subject} class="rounded-xl border-2 border-black divide-y-2 divide-black overflow-y-auto overflow-x-hidden scrollbar-hidden bg-white">
+        <div class="p-2" style="background-color: #{subject.color};">
+            <p class="font-extrabold">{subject.name}</p>
+            <p class="text-sm font-semibold">{subject.description}</p>
+        </div>
+    </QuickList>
 	<NewDialog
 		title="Neues Fach Erstellen"
 		{form}
@@ -31,9 +30,9 @@
 			const { color, description, name } = event.detail;
 
 			const { data, error } = await $supabase
-				.from('subjects')
+				.from('subject')
 				.insert([{ color: color.substring(1), description, name}]);
-            invalidateAll();
+            await invalidateAll();
 		}}
 	>
 		<p slot="button" class="flex">
