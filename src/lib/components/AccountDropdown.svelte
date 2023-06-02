@@ -1,8 +1,8 @@
-<script>
+<script lang="ts">
     import {DarkMode, Dropdown, DropdownDivider, DropdownHeader, DropdownItem} from "flowbite-svelte";
-    import {User} from "sveltefire";
-    import {sdk} from "sveltefire/stores";
     import {goto} from "$app/navigation";
+    import User from "$lib/supabase/User.svelte";
+    import {logout} from "$lib/supabase";
 
     export let placement = "bottom";
     export let triggeredBy = "#avatar-menu";
@@ -11,7 +11,7 @@
 <Dropdown {placement} {triggeredBy}>
     <User let:user>
         <DropdownHeader>
-            <span class="block text-sm">{user.displayName}</span>
+            <span class="block text-sm">{user.user_metadata.name}</span>
             <span class="block truncate text-sm font-medium">{user.email}</span>
         </DropdownHeader>
 
@@ -25,7 +25,7 @@
         <DropdownDivider />
         <DropdownItem
                 on:click={() => {
-						$sdk.auth.signOut();
+						logout();
 						goto('/login');
 					}}
         >Ausloggen

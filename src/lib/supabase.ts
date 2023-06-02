@@ -1,27 +1,28 @@
-import { createClient } from '@supabase/supabase-js'
-import {env} from "$env/dynamic/public";
-import {writable} from "svelte/store";
+import {get, writable} from "svelte/store";
+import type {SupabaseClient, Session, User} from "@supabase/supabase-js";
 
-export const supabase = createClient(env.PUBLIC_SUPABASE_URL, env.PUBLIC_SUPABASE_ANON_KEY)
 
-export const user = writable();
-supabase.auth.onAuthStateChange((event, session) => {
-    user.set(session?.user ?? null);
-});
+export const user = writable<User | null>();
+export const supabase = writable<SupabaseClient>();
+export const session = writable<Session>();
 export async function register(name: string, email: string, password: string){
-    const { data, error } = await supabase.auth.signUp({
+    const { data, error } = await get(supabase).auth.signUp({
         email,
-        password
+        password,
+        options: {
+            emailRedirectTo: "confirm-email",
+            data: {name}
+        }
     });
+
 
     if (error) throw error;
 
-    await supabase.auth.updateUser({data: {name}});
     return data;
 
 }
 export async function login(email: string, password: string){
-    const { data, error } = await supabase.auth.signInWithPassword({
+    const { data, error } = await get(supabase).auth.signInWithPassword({
         email,
         password
     });
@@ -29,4 +30,10 @@ export async function login(email: string, password: string){
     if (error) throw error;
 
     return data;
+}
+
+export async function logout(){
+    const { error } = await get(supabase).auth.signOut();
+
+    if (error) throw error;
 }

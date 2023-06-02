@@ -1,26 +1,29 @@
 <script lang="ts">
     import LoginForm from './LoginForm.svelte';
-    import {login} from '$lib/firebase.js';
-    import {User} from 'sveltefire';
     import {A, Alert} from 'flowbite-svelte';
     import {goto} from "$app/navigation";
+    import User from "$lib/supabase/User.svelte";
+    import {login} from "$lib/supabase.js";
+    import AlreadyLoggedInComponent from "../AlreadyLoggedInComponent.svelte";
 
     let error;
+
+    function sleep(milis: number){
+        return new Promise((resolve) => setTimeout(resolve, milis));
+    }
 </script>
 
 <div>
     <User let:user>
-        <div>
-            <p>Du bist schon eingeloggt {user.displayName}.</p>
-            <p>Log dich zuerst aus.</p>
-        </div>
+        <AlreadyLoggedInComponent {user} />
         <div slot="signedOut">
             <LoginForm
                     on:submit={async (event) => {
 					const { email, password } = event.detail;
 					try {
 						const user = await login(email, password);
-                        goto('/account');
+                        await sleep(1000);
+                        await goto('/account');
 						console.log(user);
 					} catch (e) {
 						error = e;
@@ -34,6 +37,7 @@
     {#if error}
         <Alert color="red">
             <p>
+                {JSON.stringify(error)}
                 {#if error.code === ''}
                     Help
                 {/if}
