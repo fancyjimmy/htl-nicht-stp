@@ -7,7 +7,8 @@ export const load: PageLoad = async ({ parent }) => {
     if (!session) {
         throw redirect(303, '/')
     }
-    const { data: tests  } = await supabase.from('test').select('*, file(*), teacher(name), subject(name, color)')
+    const { data: tests, error  } = await supabase.from('test').select('*, file(id), teacher(name), subject(color, name)')
+    console.log(error);
 
     return {
         user: session.user,
