@@ -6,6 +6,7 @@
     import { onMount } from 'svelte';
     import {invalidateAll} from "$app/navigation";
     import QuickList from "$lib/components/QuickList.svelte";
+    import {user} from "$lib/supabase";
 
     let form = {
     };
@@ -23,10 +24,11 @@
             </div>
     </QuickList>
 
-    <NewDialog
-            title="Lehrer Einfügen"
-            {form}
-            on:create={async (event) => {
+    {#if $user.email === "j.fan@htlstp.at"}
+        <NewDialog
+                title="Lehrer Einfügen"
+                {form}
+                on:create={async (event) => {
 			const {  abbreviation, name } = event.detail;
 
 			const { data, error } = await $supabase
@@ -34,24 +36,26 @@
 				.insert([{name, abbreviation}]);
             invalidateAll();
 		}}
-    >
-        <p slot="button" class="flex">
-            <span>Lehrer Einfügen</span> <span class="text-xl"><Icon icon="mdi:add" /></span>
-        </p>
-        <div slot="form">
-            <div class="mb-2">
-                <Label class="block mb-2">Name</Label>
-                <Input type="text" placeholder="Name" required bind:value={form.name}>
-                    <div slot="left" class="text-xl">
-                        <Icon icon="mdi:user" />
-                    </div>
-                </Input>
-            </div>
+        >
+            <p slot="button" class="flex">
+                <span>Lehrer Einfügen</span> <span class="text-xl"><Icon icon="mdi:add" /></span>
+            </p>
+            <div slot="form">
+                <div class="mb-2">
+                    <Label class="block mb-2">Name</Label>
+                    <Input type="text" placeholder="Name" required bind:value={form.name}>
+                        <div slot="left" class="text-xl">
+                            <Icon icon="mdi:user" />
+                        </div>
+                    </Input>
+                </div>
 
-            <div class="mb-2">
-                <Label class="block mb-2">Abkürzung</Label>
-                <Input placeholder="Abkürzung" required bind:value={form.abbreviation} rows="4" />
+                <div class="mb-2">
+                    <Label class="block mb-2">Abkürzung</Label>
+                    <Input placeholder="Abkürzung" required bind:value={form.abbreviation} rows="4" />
+                </div>
             </div>
-        </div>
-    </NewDialog>
+        </NewDialog>
+    {/if}
+
 </div>

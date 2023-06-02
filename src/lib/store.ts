@@ -14,6 +14,7 @@ export const links = derived(user, ($user) => {
         ...standardLinks,
         {href: "/test", name: "Tests"},
         {href: "/teacher", name: "Lehrer"},
-        {href: "/subject", name: "Fächer"}
+        {href: "/subject", name: "Fächer"},
+        {href: "/quote", name: "Zitate 🤫"}
     ];
 });
