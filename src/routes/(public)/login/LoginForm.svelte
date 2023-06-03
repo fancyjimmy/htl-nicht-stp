@@ -1,8 +1,8 @@
 <script lang="ts">
     import {A, Alert, Button, Input, Label} from 'flowbite-svelte';
     import {createEventDispatcher} from 'svelte';
-    import Icon from '@iconify/svelte';
     import TogglePasswordInput from "../register/TogglePasswordInput.svelte";
+    import {emailEnd} from "$lib/utils";
 
     let email = '';
     let password = '';
@@ -10,7 +10,6 @@
     let passwordDirty = false;
     let passwordTouched = false;
 
-    const emailEnd = '@htlstp.at';
     let showError = true;
 
     const dispatch = createEventDispatcher();
@@ -62,11 +61,9 @@
                           clip-rule="evenodd"></path>
                 </svg>
             </A>
-            <!--
-            TODO: Password reset
-                        <A href="/reset-password" color="text-primary-500 dark:text-white">Password vergessen?
-                        </A>
-                        -->
+
+            <A href="/reset-password" color="text-primary-500 dark:text-white">Password vergessen?
+            </A>
         </div>
     </div>
 </form>

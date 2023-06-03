@@ -3,6 +3,7 @@
     import TogglePasswordInput from './TogglePasswordInput.svelte';
     import {createEventDispatcher} from "svelte";
     import Icon from "@iconify/svelte";
+    import {emailEnd} from "$lib/utils";
 
     let email = '';
     let password = '';
@@ -57,7 +58,6 @@
         }
     }
 
-    const emailEnd = "@htlstp.at";
     let showError = true;
 
     const dispatch = createEventDispatcher();

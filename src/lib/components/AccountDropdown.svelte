@@ -16,7 +16,7 @@
         </DropdownHeader>
 
         <DropdownItem href="/account">Account</DropdownItem>
-        <DropdownItem>Einstellungen</DropdownItem>
+        <DropdownItem href="/reset-password">Passwort zurücksetzen</DropdownItem>
         <!--
         <DropdownDivider />
         <DropdownItem class="p-0">

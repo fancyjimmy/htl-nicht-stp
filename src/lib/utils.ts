@@ -16,3 +16,6 @@ export function range(from: number, to: number, step = 1) {
     }
     return arr;
 }
+
+
+export const emailEnd = "@htlstp.at";
