@@ -32,9 +32,11 @@
         {name: "Wiederholung", value: "WDH"},
         {name: "Prüfung", value: "PRF"},
     ]
+
+    let disabled = false;
 </script>
 
-<form on:submit|preventDefault={() => {dispatch("created", {...form})}} class="p-6 w-full h-full">
+<form on:submit|preventDefault={() => {dispatch("created", {...form}); disabled = true;}} class="p-6 w-full h-full">
     <div class="flex flex-1 flex-col md:flex-row gap-2 md:gap-6 w-full h-full mb-3 items-center">
         <div class="flex flex-col gap-2 max-w-xl w-full mb-3">
             <Heading tag="h2" class="mb-3">Neuer Test</Heading>
@@ -135,7 +137,8 @@
         <div class="flex flex-col gap-3 flex-1 w-full">
             <div class="flex-1">
                 <Label class="block text-xl font-semibold mb-3">Dateien</Label>
-                <Dropzone id="dropzone" multiple bind:files={form.files} accept=".png, .jpg, .jpeg, .pdf, .txt" class="p-4 w-full">
+                <Dropzone id="dropzone" multiple bind:files={form.files} accept=".png, .jpg, .jpeg, .pdf, .txt"
+                          class="p-4 w-full">
                     <svg
                             aria-hidden="true"
                             class="mb-3 w-10 h-10 text-gray-400"
@@ -170,7 +173,11 @@
             </div>
         </div>
     </div>
-    <Button type="submit">Erstellen</Button>
+    {#if disabled}
+        <Button disabled type="submit">Erstellen</Button>
+    {:else}
+        <Button type="submit">Erstellen</Button>
+    {/if}
 
 </form>
 

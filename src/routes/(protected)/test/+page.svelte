@@ -7,7 +7,7 @@
 
 <div class="p-4 w-full flex flex-col gap-3 h-full">
 
-    <Heading tag="h2">Test</Heading>
+    <Heading tag="h2">Test 📄</Heading>
 
     <QuickList items={data.tests} let:item={test} class="rounded-xl border-2 border-black divide-y-2 divide-black overflow-y-auto overflow-x-hidden scrollbar-hidden bg-white">
         <a href="/test/{test.id}" class="p-2 flex justify-between" style="background-color: #{test.subject.color };">

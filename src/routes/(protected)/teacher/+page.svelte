@@ -15,7 +15,7 @@
 </script>
 
 <div class="p-4 w-full flex flex-col gap-3 h-full">
-    <Heading tag="h2">Lehrer</Heading>
+    <Heading tag="h2">Lehrer 🧑‍🏫</Heading>
 
     <QuickList items={data.teachers} let:item={teacher} class="rounded-xl border-2 border-black divide-y-2 divide-black overflow-y-auto overflow-x-hidden scrollbar-hidden bg-white">
             <div class="p-2">

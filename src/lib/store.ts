@@ -12,9 +12,9 @@ export const links = derived(user, ($user) => {
 
     return [
         ...standardLinks,
-        {href: "/test", name: "Tests"},
-        {href: "/teacher", name: "Lehrer"},
-        {href: "/subject", name: "Fächer"},
+        {href: "/test", name: "Tests 📄"},
+        {href: "/teacher", name: "Lehrer 🧑‍🏫"},
+        {href: "/subject", name: "Fächer 📚"},
         {href: "/quote", name: "Zitate 🤫"}
     ];
 });
