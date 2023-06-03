@@ -17,10 +17,12 @@
 
         <DropdownItem href="/account">Account</DropdownItem>
         <DropdownItem>Einstellungen</DropdownItem>
+        <!--
         <DropdownDivider />
         <DropdownItem class="p-0">
             <DarkMode class="p-2 w-full rounded flex items-center justify-center" initialTheme="light"/>
         </DropdownItem>
+        -->
         <DropdownDivider />
         <DropdownItem
                 class="pb-4"
@@ -34,10 +36,12 @@
         <div slot="signedOut">
             <DropdownItem href="/login">Login</DropdownItem>
             <DropdownItem href="/register">Registrieren</DropdownItem>
+            <!--
             <DropdownDivider />
             <DropdownItem class="p-0">
                 <DarkMode class="p-2 w-full rounded flex items-center justify-center" initialTheme="light"/>
             </DropdownItem>
+            -->
         </div>
     </User>
 

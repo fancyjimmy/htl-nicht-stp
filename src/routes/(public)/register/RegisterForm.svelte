@@ -1,5 +1,5 @@
 <script lang="ts">
-    import {A, Alert, Button, Input, Label} from 'flowbite-svelte';
+    import {A, Alert, Button, Helper, Input, Label} from 'flowbite-svelte';
     import TogglePasswordInput from './TogglePasswordInput.svelte';
     import {createEventDispatcher} from "svelte";
     import Icon from "@iconify/svelte";
@@ -78,17 +78,18 @@
             });
 
         }}
-        class="p-4 max-w-md"
+        class="p-4 w-full max-w-lg mx-8"
 >
     <div class="mb-4">
         <h3 class="text-3xl dark:text-slate-100 mb-2 font-semibold">Registrieren</h3>
         <div class="mb-2">
-            <Label class="block mb-2">Name</Label>
+            <Label class="block mb-2">Username</Label>
             <Input type="text" placeholder="Name" required bind:value={name}>
                 <div slot="left" class="text-xl">
                     <Icon icon="mdi:user"></Icon>
                 </div>
             </Input>
+            <Helper>Kann nicht geändert werden.</Helper>
         </div>
 
         <div class="mb-2">

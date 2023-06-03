@@ -13,6 +13,7 @@
     import {user} from "$lib/supabase.js";
     import {page} from "$app/stores";
     import {links} from "$lib/store";
+    import IconAvatar from "$lib/components/IconAvatar.svelte";
 
 </script>
 <div class="p-2">
@@ -23,11 +24,7 @@
         </NavBrand>
         <div class="flex items-center md:order-2 gap-1 px-2">
             <div class="avatar py-2 md:p-0">
-                {#if $user}
-                    <Avatar><span class="uppercase">{($user?.email ?? "A").substring(0, 1)}</span></Avatar>
-                {:else}
-                    <Avatar/>
-                {/if}
+                <IconAvatar loggedIn={$user !== null} initial={($user?.email ?? "☠️").substring(0, 1)}/>
             </div>
             <NavHamburger on:click={toggle} class1="w-full md:flex md:w-auto md:order-1"/>
         </div>
