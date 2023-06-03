@@ -137,7 +137,7 @@
         <div class="flex flex-col gap-3 flex-1 w-full">
             <div class="flex-1">
                 <Label class="block text-xl font-semibold mb-3">Dateien</Label>
-                <Dropzone id="dropzone" multiple bind:files={form.files} accept=".png, .jpg, .jpeg, .pdf, .txt"
+                <Dropzone id="dropzone" multiple bind:files={form.files} accept=".png, .jpg, .jpeg, .txt"
                           class="p-4 w-full">
                     <svg
                             aria-hidden="true"
@@ -158,7 +158,7 @@
                         <span class="font-semibold">Klick zum Uploaden</span>
                         oder Drag and Drop
                     </p>
-                    <p class="text-xs text-gray-500 dark:text-gray-400">.png, .jpg, .pdf, .txt</p>
+                    <p class="text-xs text-gray-500 dark:text-gray-400">.png, .jpg, .txt</p>
                 </Dropzone>
             </div>
 
