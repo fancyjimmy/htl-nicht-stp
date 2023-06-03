@@ -17,6 +17,7 @@
     import {onMount} from 'svelte';
     import {invalidateAll} from "$app/navigation";
     import QuickList from "$lib/components/QuickList.svelte";
+    import {user} from "$lib/supabase.js";
 
     let form = {
         color: '#13096e'
@@ -79,7 +80,7 @@
 
 			const { data, error } = await $supabase
 				.from('quote')
-				.insert({ quote, context, teacherId });
+				.insert({ quote, context, teacherId, creatorId: $user.id});
 
             if (error) {
                 console.error(error);

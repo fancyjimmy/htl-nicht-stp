@@ -58,7 +58,7 @@
 			grade: event.detail.grade,
 			year: event.detail.year,
 			className: event.detail.className,
-
+			creatorId: $user.id,
 			count: event.detail.count === "" ? undefined : event.detail.count,
 			description: event.detail.description,
 			test_type: event.detail.testType
