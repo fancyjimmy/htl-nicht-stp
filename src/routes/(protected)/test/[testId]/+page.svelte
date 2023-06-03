@@ -5,17 +5,47 @@
 
 	export let data;
 
-	let imageUrls = [];
 
+    async function loadUrl(imageUrl: string){
+        let {data, error} = await $supabase.storage.from("test-files").createSignedUrl(`test-files/${imageUrl}`, 60 * 3);
+        if (error) {
+            console.error(error);
+            return {};
+        }
+        return data;
+    }
+
+
+    let files = [];
 	onMount(async () => {
-		const { data: value, error } = await $supabase.storage.from('test-files').createSignedUrls(
-			data.test.file.map((file) => `test-files/${file.filename}`),
-			60 * 5
-		);
 
-		imageUrls = value;
+        files = data.test.file;
+
+        files = files.map((file) => {
+
+            if (file.filename.endsWith(".pdf")) {
+                return {
+                    ...file,
+                    type: "pdf"
+                }
+            } else if (file.filename.endsWith(".png") || file.filename.endsWith(".jpg") || file.filename.endsWith(".jpeg")) {
+                return {
+                    ...file,
+                    type: "image",
+                    image: loadUrl(file.filename)
+                }
+            } else {
+                return {
+                    ...file,
+                    type: "unknown"
+                }
+            }
+        });
+
+
+
+
         loaded = true;
-        console.log(imageUrls);
 	});
     let loaded = false;
 </script>
@@ -30,21 +60,27 @@
 		</div>
 
 		<div>
-			{#each data.test.file as file, index}
-				<div
-					class="text-sm text-slate-700 uppercase font-semibold"
-				>
-					<p>
-						{file.filename}
-					</p>
-                    {#if loaded}
-					<img src='{imageUrls[index].signedUrl}' alt="test"/>
-                    {:else}
-                        <Spinner />
-
-                    {/if}
-				</div>
-			{/each}
+            {#if loaded}
+                {#each files as file, index}
+                    <div
+                            class="text-sm text-slate-700 uppercase font-semibold"
+                    >
+                        <p>
+                            {file.name}
+                            {file.filename}
+                        </p>
+                        {#if file.type === "image"}
+                            {#await file.image}
+                                <Spinner size="sm" color="primary" />
+                            {:then response}
+                                <img src={response.signedUrl} alt={file.name} />
+                            {:catch error}
+                                <p>error</p>
+                            {/await}
+                        {/if}
+                    </div>
+                {/each}
+            {/if}
 		</div>
 	</div>
 </div>

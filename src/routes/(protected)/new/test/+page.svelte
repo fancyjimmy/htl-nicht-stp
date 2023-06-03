@@ -35,11 +35,11 @@
 		return filename.split('.').pop();
 	}
 </script>
-
-<NewTestComponent
-	subjects={data.subjects}
-	teachers={data.teachers}
-	on:created={async (event) => {
+<div class="">
+    <NewTestComponent
+            subjects={data.subjects}
+            teachers={data.teachers}
+            on:created={async (event) => {
 		const test = {
 			subjectId: event.detail.subjectId,
 			teacherId: event.detail.teacherId,
@@ -65,5 +65,7 @@
 		}
         await goto(`/test/${response.data[0].id}`);
 	}}
-/>
-<A href="/test">zurück</A>
+    />
+    <A href="/test">zurück</A>
+
+</div>

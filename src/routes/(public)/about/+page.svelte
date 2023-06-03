@@ -40,7 +40,7 @@
 			<div class="flex items-center divide-x-2 divide-gray-500 dark:divide-gray-700">
 				<cite class="pr-3 font-medium text-gray-900 dark:text-white">Chat GPT</cite>
 				<cite class="pl-3 text-sm font-Light text-gray-500 dark:text-gray-400"
-					>AI die uns übernehmen wird</cite
+					>AI die unsere Protokolle schreibt und uns übernehmen wird</cite
 				>
 			</div>
 		</figcaption>
@@ -50,6 +50,8 @@
 		Yo, willkommen zur krassen Test-Sharing-Webapp der HTL St. Pölten! Hier geht's richtig zur
 		Sache, denn wir machen das Lernen so cool wie ein Rockstar auf der Bühne!
 	</P>
+    <div>Github repo <a href="https://github.com/fancyjimmy/testy">https://github.com/fancyjimmy/testy</a></div>
+    <div>Bei Bugs oder Ideen j.fan auf teams schreiben 🙏 oder ein isssue auf github öffnen.</div>
 </div>
 
 <style>

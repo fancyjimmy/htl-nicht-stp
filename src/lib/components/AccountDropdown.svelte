@@ -19,7 +19,7 @@
         <DropdownItem>Einstellungen</DropdownItem>
         <DropdownDivider />
         <DropdownItem class="p-0">
-            <DarkMode class="p-2 w-full rounded flex items-center justify-center"/>
+            <DarkMode class="p-2 w-full rounded flex items-center justify-center" initialTheme="light"/>
         </DropdownItem>
         <DropdownDivider />
         <DropdownItem
@@ -36,7 +36,7 @@
             <DropdownItem href="/register">Registrieren</DropdownItem>
             <DropdownDivider />
             <DropdownItem class="p-0">
-                <DarkMode class="p-2 w-full rounded flex items-center justify-center"/>
+                <DarkMode class="p-2 w-full rounded flex items-center justify-center" initialTheme="light"/>
             </DropdownItem>
         </div>
     </User>

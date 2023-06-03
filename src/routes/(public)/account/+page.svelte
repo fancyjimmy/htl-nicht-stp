@@ -12,5 +12,4 @@ import {logout} from "$lib/supabase";
 
     </div>
 
-
 </User>

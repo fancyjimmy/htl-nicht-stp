@@ -34,7 +34,7 @@
     <Heading tag="h2">Zitate 😱</Heading>
 
     <div class="flex-1 relative">
-        <div class="absolute inset-0 overflow-y-auto scrollbar-hidden">
+        <div class="absolute inset-0 overflow-y-auto scrollbar-hidden p-3">
             <Timeline>
                 <QuickList items={quotes} let:item={quote} let:index
                            class="max-w-lg overflow-y-auto overflow-x-hidden scrollbar-hidden ">
