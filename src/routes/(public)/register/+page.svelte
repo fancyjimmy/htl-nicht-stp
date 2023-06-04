@@ -11,7 +11,7 @@
     let toast = false;
 </script>
 
-<div class="flex  h-full w-full">
+<div class="flex h-full w-full">
     <User let:user>
         <AlreadyLoggedInComponent {user}/>
 

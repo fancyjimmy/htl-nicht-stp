@@ -50,6 +50,8 @@
 		Yo, willkommen zur krassen Test-Sharing-Webapp der HTL St. Pölten! Hier geht's richtig zur
 		Sache, denn wir machen das Lernen so cool wie ein Rockstar auf der Bühne!
 	</P>
+    <P>BTW Projekt hat offiziell nix mit der Schule zu tun. Mir ist nur langweilig und will nicht zu hart als
+        Abteilungssprecher gefailt haben.</P>
     <div>Github repo <a href="https://github.com/fancyjimmy/testy">https://github.com/fancyjimmy/testy</a></div>
     <div>Bei Bugs oder Ideen j.fan auf teams schreiben 🙏 oder ein isssue auf github öffnen.</div>
 </div>

@@ -166,11 +166,12 @@
     </div>
 </div>
 
-<Modal title="Bilder" bind:open={showImages}>
+<Modal title="Datei" bind:open={showImages}>
     {#if loaded}
         <Tabs style="underline" divider={false} contentClass='p-2 bg-gray-50 rounded-lg dark:bg-gray-800'>
             {#each files as file, index}
-                <TabItem open title={file.name} defaultClass="max-w-[12rem] truncate inline-block text-sm font-medium text-center disabled:cursor-not-allowed">
+                <TabItem open title={file.name}
+                         defaultClass="max-w-[12rem] truncate inline-block text-sm font-medium text-center disabled:cursor-not-allowed">
                     <div class="text-sm text-slate-700 uppercase font-semibold">
                         <div class="flex-1">
                             {#if file.type === 'image'}
@@ -178,10 +179,10 @@
                                     <Spinner size="sm" color="primary"/>
                                 {:then blob}
                                     <div class="flex-1">
-                                        <div class="flex justify-between dark:text-white">
+                                        <div class="flex justify-between dark:text-white items-center pb-2">
                                             <p class="font-extrabold">{file.name}</p>
                                             <button
-                                                    class="text-2xl"
+                                                    class="text-2xl p-2"
                                                     on:click={() => {
 											downloadBlob(blob, file.name);
 										}}

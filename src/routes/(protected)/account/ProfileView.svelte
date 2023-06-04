@@ -20,8 +20,8 @@
 </script>
 
 <div class="w-full h-full">
-    <div style="background-color: {profile.color};" class="w-full h-48 border-b-4 border-black"/>
-    <div class="mt-[-10.5rem] ml-[1.5rem] sm:mt-[-1.5rem] sm:ml-8 mb-12 sm:mb-3 flex gap-3">
+    <div style="background-color: {profile.color};" class="w-full h-40 border-b-4 border-black"/>
+    <div class="mt-[-9.5rem] ml-[1.5rem] sm:mt-[-1.8rem] sm:ml-8 mb-12 sm:mb-3 flex gap-3">
         <IconAvatar icon={profile.icon} size="xl" loggedIn/>
         <div class="pt-6 pl-3">
             <p class="font-extrabold text-3xl">{profile.fullname}</p>
@@ -118,10 +118,10 @@
         </div>
         {#if !equals}
             <button
-                    class="absolute top-3 right-3 gap-2 disabled:text-white text-black"
+                    class="absolute top-2.5 right-2.5 gap-2 disabled:text-white text-black"
                     disabled={updating}
                     type="submit"
-            ><span class="text-4xl"><Icon icon="mdi:refresh"/></span>
+            ><span class="text-5xl"><Icon icon="mdi:refresh"/></span>
             </button>
         {/if}
     </form>

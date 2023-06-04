@@ -2,7 +2,7 @@
     import NewDialog from '../NewDialog.svelte';
     import Icon from '@iconify/svelte';
     import {
-        Blockquote, Checkbox,
+        Blockquote, Button, Checkbox,
         Heading,
         Input,
         Label,
@@ -32,7 +32,11 @@
 </script>
 
 <div class="p-4 w-full flex flex-col gap-3 h-full">
-    <Heading tag="h2">Zitate 😱</Heading>
+    <div class="flex justify-between">
+
+        <Heading tag="h2">Zitate 😱</Heading>
+        <Button href="/random/quote">Zufällig</Button>
+    </div>
 
     <div class="flex-1 relative">
         <div class="absolute inset-0 overflow-y-auto scrollbar-hidden p-3">

@@ -1,9 +1,9 @@
 <script lang="ts">
-    import {A, Alert, Button, Helper, Input, Label} from 'flowbite-svelte';
+    import {A, Alert, Button, Helper, Input, Label, Tooltip} from 'flowbite-svelte';
     import TogglePasswordInput from './TogglePasswordInput.svelte';
-    import {createEventDispatcher} from "svelte";
-    import Icon from "@iconify/svelte";
-    import {emailEnd} from "$lib/utils";
+    import {createEventDispatcher} from 'svelte';
+    import Icon from '@iconify/svelte';
+    import {emailEnd} from '$lib/utils';
 
     let email = '';
     let password = '';
@@ -61,23 +61,21 @@
     let showError = true;
 
     const dispatch = createEventDispatcher();
-    let name = "";
+    let name = '';
 </script>
 
 <form
         on:submit|preventDefault={() => {
-            if (errors.length > 0){
-                return;
-            }
+		if (errors.length > 0) {
+			return;
+		}
 
-
-            dispatch('submit', {
-                name,
-                email: email.endsWith(emailEnd) ? email : `${email}${emailEnd}`,
-                password
-            });
-
-        }}
+		dispatch('submit', {
+			name,
+			email: email.endsWith(emailEnd) ? email : `${email}${emailEnd}`,
+			password
+		});
+	}}
         class="p-4 w-full max-w-lg mx-8"
 >
     <div class="mb-4">
@@ -86,7 +84,7 @@
             <Label class="block mb-2">Username</Label>
             <Input type="text" placeholder="Name" required bind:value={name}>
                 <div slot="left" class="text-xl">
-                    <Icon icon="mdi:user"></Icon>
+                    <Icon icon="mdi:user"/>
                 </div>
             </Input>
             <Helper>Kann nicht geändert werden.</Helper>
@@ -129,6 +127,12 @@
                     placeholder="Passwort Wiederholen"
                     bind:dirty={passwordRepeatDirty}
             />
+
+            <Helper>Bitte nicht das Schulpasswort verwenden 🙏😘</Helper>
+            <Tooltip>
+                BTW das Passwort wird ehh nicht als Plain Text gespeichert, sonder der Hash, aber trotzdem bitte nicht
+                Schulpasswort verwenden, weil ich keine Verantwortung übernehmen will. Bitte danke. ly &lt;3.
+            </Tooltip>
         </div>
 
         {#if errors.length >= 1}
@@ -161,8 +165,21 @@
     <Button class="w-full" type="submit">Erstellen</Button>
 
     <div class="mt-2 text-sm font-bold">
-        <A href="/login" color="text-primary-500 dark:text-white">Du hast schon ein Konto?
-            <svg class="ml-1 w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg>
+        <A href="/login" color="text-primary-500 dark:text-white"
+        >Du hast schon ein Konto?
+            <svg
+                    class="ml-1 w-4 h-4"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg"
+            >
+                <path
+                        fill-rule="evenodd"
+                        d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                        clip-rule="evenodd"
+                />
+            </svg
+            >
         </A>
     </div>
 </form>
