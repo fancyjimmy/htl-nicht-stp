@@ -1,15 +1,22 @@
 // src/routes/profile/+page.ts
-import type {PageLoad} from './$types'
-import {redirect} from '@sveltejs/kit'
+import type {PageLoad} from './$types';
+import {redirect} from '@sveltejs/kit';
 
 export const load: PageLoad = async ({parent, params}) => {
-    const {supabase, session} = await parent()
+    const {supabase, session} = await parent();
     if (!session) {
-        throw redirect(303, '/')
+        throw redirect(303, '/');
     }
-    const {data: profile} = await supabase.from('profile').select('*, test(*), quote(*)').eq('id', params.id).single();
+    const {data: profile, error} = await supabase
+        .from('profile_user_view')
+        .select('*, test(*, subject(*), teacher(*)), quote(*, teacher(*))')
+        .eq('id', params.id)
+        .single();
 
-    return {
-        profile,
+    if (error) {
+        console.error(error);
     }
-}
+    return {
+        profile
+    };
+};
