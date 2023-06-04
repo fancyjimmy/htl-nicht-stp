@@ -22,4 +22,5 @@ export type Profile = {
     fullname: string,
     className: string,
     role: Role,
+    enabled: boolean
 }

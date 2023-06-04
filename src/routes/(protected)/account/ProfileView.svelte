@@ -26,6 +26,9 @@
         <div class="pt-6 pl-3">
             <p class="font-extrabold text-3xl">{profile.fullname}</p>
             <p class="text-slate-600 text-lg font-semibold">{$user.email}</p>
+            <p class="text-slate-800 font-semibold text-sm">
+                {profile.role}
+            </p>
             <p class="text-slate-800">
                 {#if profile.grade === -1}
                     Absolvent
@@ -34,8 +37,6 @@
                 {/if}
             </p>
         </div>
-        <Button>Request Klassensprecher</Button>
-        <Button>Request Abteilungssprecher</Button>
     </div>
 
     <form

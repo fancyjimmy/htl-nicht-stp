@@ -19,7 +19,7 @@
         <DropdownItem href="/account">Account</DropdownItem>
         <DropdownItem href="/reset-password">Passwort zurücksetzen</DropdownItem>
         {#if profile?.role === "ABTEILUNGSSPRECHER"}
-            <DropdownItem href="/account/manage">Accounts verwalten</DropdownItem>
+            <DropdownItem href="/admin">Admin</DropdownItem>
         {/if}
         <!--
         <DropdownDivider />

@@ -35,7 +35,7 @@
 
         <NavUl {hidden} color="primary" class="border-x border-black dark:border-slate-200">
             {#each $links as link}
-                <NavLi href={link.href} active={$page.route.id.endsWith(link.href)}>{link.name}</NavLi>
+                <NavLi href={link.href} active={$page.route.id?.endsWith(link.href) ?? false}>{link.name}</NavLi>
             {/each}
         </NavUl>
     </Navbar>
