@@ -1,10 +1,12 @@
 import {get, writable} from "svelte/store";
 import type {SupabaseClient, Session, User} from "@supabase/supabase-js";
+import type {Profile} from "./type";
 
 
 export const user = writable<User | null>();
 export const supabase = writable<SupabaseClient>();
 export const session = writable<Session>();
+export const profile = writable<Profile | null>();
 export async function register(name: string, email: string, password: string){
     const { data, error } = await get(supabase).auth.signUp({
         email,

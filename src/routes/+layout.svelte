@@ -1,26 +1,28 @@
 <script lang="ts">
 	import '../app.css';
 
-	import { invalidate } from '$app/navigation';
-	import { onMount } from 'svelte';
-	import { supabase, session } from '$lib/supabase';
+    import {invalidate} from '$app/navigation';
+    import {onMount} from 'svelte';
+    import {supabase, session, profile} from '$lib/supabase';
     import {user} from "../lib/supabase";
     import Header from "./(public)/Header.svelte";
-	export let data;
 
-	$: $supabase = data.supabase;
-	$: $session = data.session;
+    export let data;
 
-	onMount(() => {
-		const {
-			data: { subscription }
-		} = $supabase.auth.onAuthStateChange((event, _session) => {
-			if (_session?.expires_at !== $session?.expires_at) {
-				invalidate('supabase:auth');
-			}
+    $: $supabase = data.supabase;
+    $: $session = data.session;
+    $: $profile = data.profile;
+    $: $user = $session.user;
+
+    onMount(() => {
+        const {
+            data: {subscription}
+        } = $supabase.auth.onAuthStateChange((event, _session) => {
+            if (_session?.expires_at !== $session?.expires_at) {
+                invalidate('supabase:auth');
+            }
 
             $session = _session;
-            $user = _session?.user ?? null;
 		});
 
 		return () => subscription.unsubscribe();
