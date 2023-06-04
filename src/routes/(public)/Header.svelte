@@ -10,7 +10,7 @@
     } from 'flowbite-svelte';
 
     import AccountDropdown from "$lib/components/AccountDropdown.svelte";
-    import {user} from "$lib/supabase.js";
+    import {profile, user} from "$lib/supabase";
     import {page} from "$app/stores";
     import {links} from "$lib/store";
     import IconAvatar from "$lib/components/IconAvatar.svelte";
@@ -24,7 +24,8 @@
         </NavBrand>
         <div class="flex items-center md:order-2 gap-1 px-2">
             <div class="avatar py-2 md:p-0">
-                <IconAvatar loggedIn={$user !== null} initial={($user?.email ?? "☠️").substring(0, 1)}/>
+                <IconAvatar loggedIn={$user !== null} initial={($user?.email ?? "☠️").substring(0, 1)}
+                            icon={$profile?.icon}/>
             </div>
             <NavHamburger on:click={toggle} class1="w-full md:flex md:w-auto md:order-1"/>
         </div>

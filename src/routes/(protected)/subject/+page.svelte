@@ -4,9 +4,11 @@
     import {Heading, Input, Label, Listgroup, P, Textarea} from 'flowbite-svelte';
     import {supabase} from '$lib/supabase';
     import {onMount} from 'svelte';
-    import {invalidateAll} from "$app/navigation";
-    import QuickList from "$lib/components/QuickList.svelte";
-    import {user} from "$lib/supabase.js";
+    import {invalidateAll} from '$app/navigation';
+    import QuickList from '$lib/components/QuickList.svelte';
+    import {user} from '$lib/supabase.js';
+    import User from '$lib/supabase/User.svelte';
+    import {MINIMUM_ROLE} from '$lib/type.js';
 
     let form = {
         color: '#13096e'
@@ -18,27 +20,33 @@
 <div class="p-4 w-full flex flex-col gap-3 h-full">
     <Heading tag="h2">Fächer 📚</Heading>
 
-    <QuickList items={data.subjects} let:item={subject}
-               class="rounded-xl border-2 border-black divide-y-2 divide-black overflow-y-auto overflow-x-hidden scrollbar-hidden bg-white">
+    <QuickList
+            items={data.subjects}
+            let:item={subject}
+            class="rounded-xl border-2 border-black divide-y-2 divide-black overflow-y-auto overflow-x-hidden scrollbar-hidden bg-white"
+    >
         <div class="p-2" style="background-color: #{subject.color};">
             <p class="font-extrabold">{subject.name}</p>
             <p class="text-sm font-semibold">{subject.description}</p>
         </div>
     </QuickList>
 
-    {#if $user.email === "j.fan@htlstp.at"}
-
+    <User role={MINIMUM_ROLE.ABTEILUNGSSPRECHER}>
         <NewDialog
                 title="Neues Fach Erstellen"
                 {form}
                 on:create={async (event) => {
-			const { color, description, name } = event.detail;
+				const { color, description, name } = event.detail;
 
-			const { data, error } = await $supabase
-				.from('subject')
-				.insert([{ color: color.substring(1), description, name}]);
-            await invalidateAll();
-		}}
+				const { data, error } = await $supabase
+					.from('subject')
+					.insert([{ color: color.substring(1), description, name }]);
+
+                if (error){
+                    console.error(error);
+                }
+				await invalidateAll();
+			}}
         >
             <p slot="button" class="flex">
                 <span>Neues Fach Erstellen</span> <span class="text-xl"><Icon icon="mdi:add"/></span>
@@ -67,5 +75,5 @@
                 </div>
             </div>
         </NewDialog>
-    {/if}
+    </User>
 </div>

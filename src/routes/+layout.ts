@@ -10,7 +10,7 @@ import type {SupabaseClient} from "@supabase/supabase-js";
 const getProfile = async (supabase: SupabaseClient, userId: string) => {
     const {data: profile, error} = await supabase.from("profile").select("*").eq("id", userId).single()
     if (error) {
-        console.error(error);
+        //console.error(error);
         return null;
     }
 

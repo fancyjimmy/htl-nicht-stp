@@ -34,6 +34,8 @@
                 {/if}
             </p>
         </div>
+        <Button>Request Klassensprecher</Button>
+        <Button>Request Abteilungssprecher</Button>
     </div>
 
     <form

@@ -2,14 +2,15 @@
     import NewDialog from '../NewDialog.svelte';
     import Icon from '@iconify/svelte';
     import {Heading, Input, Label, Listgroup, P, Textarea} from 'flowbite-svelte';
-    import { supabase } from '$lib/supabase';
-    import { onMount } from 'svelte';
+    import {supabase} from '$lib/supabase';
+    import {onMount} from 'svelte';
     import {invalidateAll} from "$app/navigation";
     import QuickList from "$lib/components/QuickList.svelte";
     import {user} from "$lib/supabase";
+    import {MINIMUM_ROLE} from "$lib/type.js";
+    import User from "$lib/supabase/User.svelte";
 
-    let form = {
-    };
+    let form = {};
 
     export let data;
 </script>
@@ -24,7 +25,7 @@
             </div>
     </QuickList>
 
-    {#if $user.email === "j.fan@htlstp.at"}
+    <User role={MINIMUM_ROLE.ABTEILUNGSSPRECHER}>
         <NewDialog
                 title="Lehrer Einfügen"
                 {form}
@@ -52,10 +53,10 @@
 
                 <div class="mb-2">
                     <Label class="block mb-2">Abkürzung</Label>
-                    <Input placeholder="Abkürzung" required bind:value={form.abbreviation} rows="4" />
+                    <Input placeholder="Abkürzung" required bind:value={form.abbreviation} rows="4"/>
                 </div>
             </div>
         </NewDialog>
-    {/if}
+    </User>
 
 </div>

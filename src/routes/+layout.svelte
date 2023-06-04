@@ -12,7 +12,7 @@
     $: $supabase = data.supabase;
     $: $session = data.session;
     $: $profile = data.profile;
-    $: $user = $session.user;
+    $: $user = $session?.user ?? null;
 
     onMount(() => {
         const {

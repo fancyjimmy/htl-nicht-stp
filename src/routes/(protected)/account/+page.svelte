@@ -12,9 +12,9 @@
     export let data;
 </script>
 
-<User let:user>
+<User let:user let:profile>
     <div class="dark:text-slate-100">
-        {#if !data.profile}
+        {#if !profile}
             <InitializeProfilePage on:created={async (event) => {
                 event.detail.fullname = event.detail.fullname.trim();
 
@@ -23,8 +23,9 @@
                 }
 
                 console.log(event.detail);
-                const profile = {...event.detail, "id": user.id};
-                await $supabase.from("profile").insert(profile);
+                const profile = {...event.detail, "id": user.id, role: "USER"};
+                const result = await $supabase.from("profile").insert(profile);
+                console.log(result);
                 await invalidateAll();
             }}/>
         {:else}
