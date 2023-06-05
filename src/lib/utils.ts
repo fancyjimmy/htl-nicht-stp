@@ -1,5 +1,5 @@
 export const avatars: { [key: string]: string } = {
-    "riesi": "/images/riesi.png",
+    "riesi": "/images/riesi.jpg",
     "mausi": "/images/mausi.png",
     "weber": "/images/weber.jpg",
     "kein Avatar": ""

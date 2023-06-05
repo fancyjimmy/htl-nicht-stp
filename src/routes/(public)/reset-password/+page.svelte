@@ -16,7 +16,6 @@
         const result = await $supabase.auth.resetPasswordForEmail(email, {
             redirectTo: `${PUBLIC_BASEURL}/reset-password`
         });
-
         emailSent = true;
     }
 

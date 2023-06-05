@@ -21,7 +21,7 @@
         <AlreadyLoggedInComponent {user}/>
         <div slot="signedOut" class="flex-col md:flex-row flex h-full w-full gap-3 items-center justify-center">
             <div class="hidden md:block flex-1 h-full">
-                <img src="/images/riesi.png" alt="Riesi" class="h-full w-full">
+                <img src="/images/riesi.jpg" alt="Riesi" class="h-full w-full">
             </div>
 
             <LoginForm
