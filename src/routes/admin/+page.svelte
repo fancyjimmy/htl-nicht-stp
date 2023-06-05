@@ -6,3 +6,4 @@
 
 <p>Admin</p>
 <Button href="/admin/user">User</Button>
+<Button href="/admin/test">test</Button>

@@ -29,12 +29,12 @@
 	});
 </script>
 
-<div class="flex flex-col h-screen w-screen">
-    <Header />
+<div class="flex flex-col h-screen w-full">
+    <Header/>
 
     <main class="flex-1 relative">
         <div class="absolute inset-0">
-            <slot />
+            <slot/>
         </div>
     </main>
 </div>

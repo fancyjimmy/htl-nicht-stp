@@ -72,12 +72,6 @@
                 <Textarea placeholder="Zitat" required bind:value={form.quote} rows="3"/>
             </div>
 
-            {#if context}
-                <div class="mb-2">
-                    <Label class="block mb-2">Context</Label>
-                    <Textarea placeholder="Context" bind:value={form.context} rows="6"/>
-                </div>
-            {/if}
             <div class="mb-2">
                 <Label class="block mb-2">Lehrer</Label>
                 <Select
@@ -89,6 +83,13 @@
                 />
             </div>
             <Checkbox class="mb-2" bind:checked={context}>Context Gebraucht?</Checkbox>
+
+            {#if context}
+                <div class="mb-2">
+                    <Label class="block mb-2">Context</Label>
+                    <Textarea placeholder="Context" bind:value={form.context} rows="6"/>
+                </div>
+            {/if}
         </div>
     </NewDialog>
 </div>

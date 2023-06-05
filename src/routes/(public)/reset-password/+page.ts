@@ -9,7 +9,9 @@ export const load: PageLoad = async ({parent, url}) => {
 
     const code = url.searchParams.get('code');
 
-    if (code) {
+    console.log(supabase);
+
+    if (code !== null) {
         const response = await supabase.auth.exchangeCodeForSession(code);
 
         if (response.error) {
@@ -17,10 +19,15 @@ export const load: PageLoad = async ({parent, url}) => {
             redirect(303, '/error?message=invalid-password-reset-link')
         }
 
+        console.log(response);
         session = response.data.session;
+
+        return {
+            session
+        }
     }
 
-    return {
-        session
-    }
+    return null;
+
+
 }

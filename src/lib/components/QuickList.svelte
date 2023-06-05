@@ -9,7 +9,7 @@
         <slot name="empty"/>
     {:else}
         {#each items as item, index}
-            <slot {item} {index}/>
+            <slot item={item} index={index}/>
         {/each}
     {/if}
     <slot name="footer"/>
