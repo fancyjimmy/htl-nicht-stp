@@ -16,16 +16,13 @@ export const load: PageLoad = async ({parent, url}) => {
                 console.log(response.error);
                 throw redirect(303, '/error?message=invalid-password-reset-link');
             }
-
-            const session = response.data.session;
-
-            return {
-                session
-            }
+            throw redirect(303, '/reset-password?message=success');
         } catch (error) {
             console.log(error);
             throw redirect(303, '/error?message=invalid-password-reset-link');
         }
 
+    } else {
+        return {};
     }
 }
