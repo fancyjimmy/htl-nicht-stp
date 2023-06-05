@@ -155,8 +155,8 @@
 
                         <button
                                 class="text-2xl"
-                                on:click={() => {
-							const blob = downloadUrl(file.filename);
+                                on:click={async () => {
+							const blob = await downloadUrl(file.filename);
 							downloadBlob(blob, file.name);
 						}}
                         >
