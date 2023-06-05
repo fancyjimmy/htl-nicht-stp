@@ -9,17 +9,23 @@ export const load: PageLoad = async ({parent, url}) => {
     const code = url.searchParams.get('code');
 
     if (code !== null) {
-        const response = await supabase.auth.exchangeCodeForSession(code);
+        try {
+            const response = await supabase.auth.exchangeCodeForSession(code);
 
-        if (response.error) {
-            console.log(response.error);
+            if (response.error) {
+                console.log(response.error);
+                throw redirect(303, '/error?message=invalid-password-reset-link');
+            }
+
+            const session = response.data.session;
+
+            return {
+                session
+            }
+        } catch (error) {
+            console.log(error);
             throw redirect(303, '/error?message=invalid-password-reset-link');
         }
 
-        const session = response.data.session;
-
-        return {
-            session
-        }
     }
 }
