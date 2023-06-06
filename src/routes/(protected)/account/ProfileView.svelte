@@ -24,7 +24,7 @@
     <div class="mt-[-9.5rem] ml-[1.5rem] sm:mt-[-1.8rem] sm:ml-8 mb-12 sm:mb-3 flex gap-3">
         <IconAvatar icon={profile.icon} size="xl" loggedIn/>
         <div class="pt-6 pl-3">
-            <p class="font-extrabold text-3xl">{profile.fullname}</p>
+            <p class="font-extrabold text-3xl">{profile.fullname ?? "keine Angabe"}</p>
             <p class="text-slate-600 text-lg font-semibold">{$user.email}</p>
             <p class="text-slate-800 font-semibold text-sm">
                 {profile.role}

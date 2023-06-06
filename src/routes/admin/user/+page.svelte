@@ -28,7 +28,7 @@
 
             {#each profiles as userProfile}
                 <tr class="odd:bg-slate-100 divide-x-2 divide-black">
-                    <td>{userProfile.fullname}</td>
+                    <td>{userProfile.fullname ?? "keine Angabe"}</td>
                     <td>{userProfile.icon}</td>
                     <td>{userProfile.color}</td>
                     <td>

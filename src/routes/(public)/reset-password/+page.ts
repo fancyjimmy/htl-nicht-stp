@@ -14,12 +14,12 @@ export const load: PageLoad = async ({parent, url}) => {
 
             if (response.error) {
                 console.log(response.error);
-                throw redirect(303, '/error?message=invalid-password-reset-link');
+                throw redirect(303, '/error?message=' + encodeURIComponent(JSON.stringify(response.error)));
             }
             throw redirect(303, '/reset-password?message=success');
         } catch (error) {
             console.log(error);
-            throw redirect(303, '/error?message=invalid-password-reset-link');
+            throw redirect(303, '/error?message=' + encodeURIComponent(JSON.stringify(error)));
         }
 
     } else {

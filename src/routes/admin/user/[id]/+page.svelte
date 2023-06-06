@@ -15,7 +15,7 @@
     <div class="flex gap-3">
         <IconAvatar icon={profile.icon} size="xl" loggedIn/>
         <div class="pt-6 pl-3">
-            <p class="font-extrabold text-3xl">{profile.fullname}</p>
+            <p class="font-extrabold text-3xl">{profile.fullname ?? "keine Angabe"}</p>
             <p class="text-slate-600 text-lg font-semibold">{profile.email}</p>
             <p class="text-slate-800 font-semibold text-sm">
                 {profile.role}
