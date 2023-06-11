@@ -12,3 +12,16 @@
     -ms-overflow-style: none; /* IE and Edge */
     scrollbar-width: none; /* Firefox */
 }
+
+@layer utilities {
+    .extruded {
+        --extrude-strength: 10px;
+        --extrude-color: black;
+        box-shadow: calc(-1 * var(--extrude-strength)) var(--extrude-strength) 0 var(--extrude-color);
+    }
+
+    .custom-bg {
+        --bgc: #fff;
+        background-color: var(--bgc);
+    }
+}

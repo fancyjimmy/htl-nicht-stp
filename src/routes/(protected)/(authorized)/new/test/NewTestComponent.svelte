@@ -126,7 +126,7 @@
                 <Label class="block mb-2">Beschreibung</Label>
                 <Textarea
                         type="text"
-                        placeholder="Beschreibng"
+                        placeholder="Beschreibung"
                         bind:value={form.description}
                         rows="5"
                 />

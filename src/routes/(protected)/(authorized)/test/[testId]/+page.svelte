@@ -117,7 +117,7 @@
 {#if test}
     <div class="p-4 h-full pb-12">
         <div
-                class="p-4 justify-between border-2 border-black rounded-xl flex-1 flex flex-col md:flex-row gap-3 h-full"
+                class="relative p-4 justify-between border-2 border-black rounded-xl flex-1 flex flex-col md:flex-row gap-3 h-full"
                 style="background-color: #{test.subject.color};"
         >
             <div class="flex-1 flex flex-col">
@@ -139,11 +139,14 @@
                 <p class="text-gray-700 p-2">{test.description ?? ''}</p>
 
                 {#if test.profile && MINIMUM_ROLE.KLASSENSPRECHER.includes($profile.role)}
-                    <div class="p-4 rounded-full border-2 border-black w-min h-min">
-                        <p>{test.profile.fullname}</p>
-                        <p>{test.profile.icon}</p>
-                        <p>{test.profile.color}</p>
-                    </div>
+                    <a
+                            href="/admin/user/{test.profile?.id}"
+                            class="absolute top-[-1rem] right-1 border-2 border-black p-1 rounded-md text-sm hover:brightness-125 duration-200 hover:scale-110 font-bold custom-bg"
+                            style:--bgc={test.profile?.color}
+                    >{test.profile?.fullname}#{test.profile?.grade <= 0
+                        ? 'ABSOLVENT'
+                        : `${test.profile.grade}${test.profile.className}`}</a
+                    >
                 {/if}
             </div>
 
