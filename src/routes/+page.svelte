@@ -65,157 +65,157 @@ id,name
     */
 </script>
 
-<section class="text-2xl flex gap-2 flex-col p-4 py-12  relative overflow-hidden">
-    <h1 class="text-5xl font-semibold max-w-xl mx-auto py-5 text-center">
-        Unoffizielle App <br/>für HTL-Nicht-St.Pölten
-    </h1>
+<div class="w-full h-full overflow-y-auto">
+    <section class="text-2xl flex gap-2 flex-col p-4 py-12  relative overflow-hidden">
+        <h1 class="text-5xl font-semibold max-w-xl mx-auto py-5 text-center">
+            Unoffizielle App <br/>für HTL-Nicht-St.Pölten
+        </h1>
 
-    <div class="absolute font-extrabold text-lime-400 m-auto inset-0 bg-lime-500 z-[-1]">
-        <div class="w-full h-full flex items-center justify-center">
-            <p style="font-size: 500px;" class="line-through">
-                HTL
-
-            </p>
-
-        </div>
-    </div>
-
-    <p class="max-w-xl mx-auto py-5 text-center">
-        Die Idee ist grundsätzlich eine Plattform zu haben, wo man Sachen wie <b>Tests, Aufgaben</b> und
-        <b>andere nützliche Sachen</b>
-        bezüglich der Schule machen kann um das <b>Schulleben zu erleichtern</b>.
-    </p>
-
-    <div class="mx-auto">
-        <Button size="xl" color="alternative" class="w-40" href="/login">Login</Button>
-        <Button size="xl" color="primary" class="w-40" href="/register">Registrieren</Button>
-    </div>
-</section>
-
-<section class="p-4 relative overflow-hidden">
-    <h2 class="pb-5 text-5xl">Fortschritt</h2>
-
-    <div class="debug"/>
-
-    <h3>DEV🏗️🚧</h3>
-    <p class="max-w-2xl pb-3">
-        Gerade ist die Seite noch unter Entwicklung. Die Datenbank ist noch unter Bearbeitung und es
-        könnte zu Änderungen und Löschung von Daten kommen. BTW, bitte keine Spam/Fake-Daten erstellen
-        🙏, es wird gespeichert wer was erstellt hat 🔫😄.
-    </p>
-    <p class="max-w-2xl pb-10">
-        Die UI ist auch noch bedarfswürdig und wird sich auch noch ändern und ein paar Kleinigkeiten
-        müssen noch gefixt/schöner gemacht werden (z. B. Passwort zurücksetzen, Code refactorieren und
-        Admin Dashboard, Filter Funktionen usw.)
-    </p>
-
-    <h3 class="pb-3">Zukünftige Pläne?</h3>
-
-    <ol class="list-decimal pl-6 text-xl">
-        <li>Voting System</li>
-        <li>Nachhilfe Nachfrage System</li>
-        <li>Message Boards für Schulische Hilfe</li>
-    </ol>
-
-    <p class="max-w-2xl py-6">
-        Das sind grad nur ein paar Ideen, die herum schwirren, also es ist alles noch WIP. Wenn du noch
-        weitere Ideen hast oder Bugs findest ☠️☠️☠️ schreib mir auf <span
-            class="text-purple-800 font-bold">Discord.</span
-    >
-        <Tooltip>deadgoose#0636</Tooltip>
-    </p>
-</section>
-
-<section class="p-4 bg-orange-500 py-12 text-white">
-    <h2 class="mx-auto pb-4">Funktionen</h2>
-
-    <div class="flex flex-col gap-3 max-w-2xl">
-        <h3 class="text-orange-300">Anmeldung/Registrieren</h3>
-        <p>
-            Das <b>Anmelden und Registrieren</b>, funktioniert nur per <b>Schulmail</b> (mit
-            <b>@htlstp.at</b>). Die Anmeldung soll nur per Schulmail gehen, damit Fremde keinen Zugriff
-            darauf bekommen. Es könnte sein, das die E-Mail zur Authentifizierung im <b>Spam-Ordner</b>
-            landet, also dort
-            <b>checken</b>.
-        </p>
-
-        <h3 class="text-orange-300">Rollenverteilung</h3>
-        <p>
-            Es gibt auf der Website <b>Rollen</b>, die man bekommen kann, wenn man angemeldet ist und ein
-            <b>Profil</b>
-            hat. Die Rollen haben <b>spezielle Rechte</b>, und sind dazu da
-            <b>Spam und Shitposter zu löschen ♥️</b>.
-        </p>
-
-        <h3 class="text-orange-300">Test</h3>
-        <p>
-            Man kann Fotos von Test hochladen und alte Test anschauen. Es wird nicht gezeigt wer die Tests
-            erstellt hat, damit niemand (Lehrer) sich bei den Schülern beschweren kann. Die Accounts
-            werden aber gespeichert und angezeigt, wenn man eine Maintainer Rolle hat, damit man
-            unpassende Nutzung löschen kann.
-        </p>
-        <h3 class="text-orange-300">Zitate</h3>
-        <p>
-            Man kann auch Zitate von Lehrern aufschreiben. Auch da gilt es das nicht angezeigt wird, wer
-            was schreibt. Nur Maintainer können es sehen, also keine Angst davor geleaked zu werden 😽.
-        </p>
-    </div>
-</section>
-
-<section class="bg-lime-500 p-4">
-    <p>Falls es euch interessiert seid, wie es gemacht wurde:</p>
-
-    <h2 class="mb-3 mx-auto text-center">Benutzter Techstack:</h2>
-    <div class="flex gap-3 flex-col lg:flex-row">
-        <ul class="stack">
-            <li>
-                <h3>TailwindCSS</h3>
-                <p>anstatt normales CSS, weil normales CSS ekelhaft zum schreiben ist.</p>
-            </li>
-            <li>
-                <h3>SvelteKit &lt;3</h3>
-                <p>
-                    Als Fullstack Framework. Dazu wurde noch Flowbite als UI-Component-Library verwendet, wird
-                    aber vielleicht später verworfen. Wurde mainly verwendet um ne schnelle Anfangs-Velocity
-                    zu haben um mal einen Prototypen rauszuhauen.
+        <div class="absolute font-extrabold text-lime-400 m-auto inset-0 bg-lime-500 z-[-1]">
+            <div class="w-full h-full flex items-center justify-center">
+                <p style="font-size: 500px;" class="line-through">
+                    HTL
                 </p>
-            </li>
-            <li>
-                <h3>Typescript</h3>
-                <p>Anstatt Javascript, weil typsichere Sprachen einfach besser sind.</p>
-            </li>
-            <li>
-                <h3>Supabase</h3>
-                <p>Als Datenbank, weils gut ist i guess. 🤷</p>
-            </li>
-        </ul>
-        <div>
+            </div>
+        </div>
+
+        <p class="max-w-xl mx-auto py-5 text-center">
+            Die Idee ist grundsätzlich eine Plattform zu haben, wo man Sachen wie <b>Tests, Aufgaben</b> und
+            <b>andere nützliche Sachen</b>
+            bezüglich der Schule teilen kann um das <b>Schulleben zu erleichtern</b>.
+        </p>
+
+        <div class="mx-auto">
+            <Button size="xl" color="alternative" class="w-40" href="/login">Login</Button>
+            <Button size="xl" color="primary" class="w-40" href="/register">Registrieren</Button>
+        </div>
+    </section>
+
+    <section class="p-4 relative overflow-hidden">
+        <h2 class="pb-5 text-5xl">Fortschritt</h2>
+
+        <div class="debug"/>
+
+        <h3>DEV🏗️🚧</h3>
+        <p class="max-w-2xl pb-3">
+            Gerade ist die Seite noch unter Entwicklung. Die Datenbank ist noch unter Bearbeitung und es
+            könnte zu Änderungen und Löschung von Daten kommen. BTW, bitte keine Spam/Fake-Daten erstellen
+            🙏, es wird gespeichert wer was erstellt hat 🔫😄.
+        </p>
+        <p class="max-w-2xl pb-10">
+            Die UI ist auch noch bedarfswürdig und wird sich auch noch ändern und ein paar Kleinigkeiten
+            müssen noch gefixt/schöner gemacht werden (z. B. Passwort zurücksetzen, Code refactorieren und
+            Admin Dashboard, Filter Funktionen usw.)
+        </p>
+
+        <h3 class="pb-3">Zukünftige Pläne?</h3>
+
+        <ol class="list-decimal pl-6 text-xl">
+            <li>Voting System</li>
+            <li>Nachhilfe Nachfrage System</li>
+            <li>Message Boards für Schulische Hilfe</li>
+        </ol>
+
+        <p class="max-w-2xl py-6">
+            Das sind grad nur ein paar Ideen, die herum schwirren, also es ist alles noch WIP. Wenn du noch
+            weitere Ideen hast oder Bugs findest ☠️☠️☠️ schreib mir auf <span
+                class="text-purple-800 font-bold">Discord.</span
+        >
+            <Tooltip>deadgoose#0636</Tooltip>
+        </p>
+    </section>
+
+    <section class="p-4 bg-orange-500 py-12 text-white">
+        <h2 class="mx-auto pb-4">Funktionen</h2>
+
+        <div class="flex flex-col gap-3 max-w-2xl">
+            <h3 class="text-orange-300">Anmeldung/Registrieren</h3>
             <p>
-                Der src-code ist frei auf github.com zu finden, falls es euch juckt. (oder ihr mir nicht mit
-                der Security glaubt) <a
-                    target="_blank"
-                    class="text-sky-500 underline"
-                    href="https://github.com/fancyjimmy/htl-nicht-stp"
-            >🔗</a
-            >
-                (Sry für den chaotischen Code und die fehlende Dokumentation )
+                Das <b>Anmelden und Registrieren</b>, funktioniert nur per <b>Schulmail</b> (mit
+                <b>@htlstp.at</b>). Die Anmeldung soll nur per Schulmail gehen, damit Fremde keinen Zugriff
+                darauf bekommen. Es könnte sein, das die E-Mail zur Authentifizierung im <b>Spam-Ordner</b>
+                landet, also dort
+                <b>checken</b>.
+            </p>
+
+            <h3 class="text-orange-300">Rollenverteilung</h3>
+            <p>
+                Es gibt auf der Website <b>Rollen</b>, die man bekommen kann, wenn man angemeldet ist und ein
+                <b>Profil</b>
+                hat. Die Rollen haben <b>spezielle Rechte</b>, und sind dazu da
+                <b>Spam und Shitposter zu löschen ♥️</b>.
+            </p>
+
+            <h3 class="text-orange-300">Test</h3>
+            <p>
+                Man kann Fotos von Test hochladen und alte Test anschauen. Es wird nicht gezeigt wer die Tests
+                erstellt hat, damit niemand (Lehrer) sich bei den Schülern beschweren kann. Die Accounts
+                werden aber gespeichert und angezeigt, wenn man eine Maintainer Rolle hat, damit man
+                unpassende Nutzung löschen kann.
+            </p>
+            <h3 class="text-orange-300">Zitate</h3>
+            <p>
+                Man kann auch Zitate von Lehrern aufschreiben. Auch da gilt es das nicht angezeigt wird, wer
+                was schreibt. Nur Maintainer können es sehen, also keine Angst davor geleaked zu werden 😽.
             </p>
         </div>
-    </div>
-</section>
+    </section>
 
-<footer class="p-6 relative">
-    <div class="text-transparent absolute bottom-0 right-0">send nudes 👀. easter egg 🤫</div>
-    <div class="text-sm font-semibold">
-        <div>
-            Schreibt mir auf <span class="text-purple-800 font-bold">Discord</span>
-            <Tooltip>deadgoose#0636</Tooltip>
-            , wenn ihr Ideen habt, auf Bugs stößt oder gute Lehrer Memes
-            habt, die ich einbauen kann.
+    <section class="bg-lime-500 p-4">
+        <p>Falls es euch interessiert seid, wie es gemacht wurde:</p>
+
+        <h2 class="mb-3 mx-auto text-center">Benutzter Techstack:</h2>
+        <div class="flex gap-3 flex-col lg:flex-row">
+            <ul class="stack">
+                <li>
+                    <h3>TailwindCSS</h3>
+                    <p>anstatt normales CSS, weil normales CSS ekelhaft zum schreiben ist.</p>
+                </li>
+                <li>
+                    <h3>SvelteKit &lt;3</h3>
+                    <p>
+                        Als Fullstack Framework. Dazu wurde noch Flowbite als UI-Component-Library verwendet, wird
+                        aber vielleicht später verworfen. Wurde mainly verwendet um ne schnelle Anfangs-Velocity
+                        zu haben um mal einen Prototypen rauszuhauen.
+                    </p>
+                </li>
+                <li>
+                    <h3>Typescript</h3>
+                    <p>Anstatt Javascript, weil typsichere Sprachen einfach besser sind.</p>
+                </li>
+                <li>
+                    <h3>Supabase</h3>
+                    <p>Als Datenbank, weils gut ist i guess. 🤷</p>
+                </li>
+            </ul>
+            <div>
+                <p>
+                    Der src-code ist frei auf github.com zu finden, falls es euch juckt. (oder ihr mir nicht mit
+                    der Security glaubt) <a
+                        target="_blank"
+                        class="text-sky-500 underline"
+                        href="https://github.com/fancyjimmy/htl-nicht-stp"
+                >🔗</a
+                >
+                    (Sry für den chaotischen Code und die fehlende Dokumentation )
+                </p>
+            </div>
         </div>
-        <div>love y'all 🌈😽</div>
-    </div>
-</footer>
+    </section>
+
+    <footer class="p-6 relative">
+        <div class="text-transparent absolute bottom-0 right-0">send nudes 👀. easter egg 🤫</div>
+        <div class="text-sm font-semibold">
+            <div>
+                Schreibt mir auf <span class="text-purple-800 font-bold">Discord</span>
+                <Tooltip>deadgoose#0636</Tooltip>
+                , wenn ihr Ideen habt, auf Bugs stößt oder gute Lehrer Memes
+                habt, die ich einbauen kann.
+            </div>
+            <div>love y'all 🌈😽</div>
+        </div>
+    </footer>
+</div>
 
 <!--
 {#if kanbanBoard && false}
