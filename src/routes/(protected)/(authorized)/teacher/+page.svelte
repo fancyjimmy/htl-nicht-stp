@@ -23,12 +23,14 @@
             let:item={teacher}
             class="rounded-xl border-2 border-black divide-y-2 divide-black overflow-y-auto overflow-x-hidden scrollbar-hidden bg-white"
     >
-        <div class="p-2">
-            <p class="font-extrabold">{teacher.name}</p>
-            <p class="text-sm italic text-slate-700 uppercase font-semibold">
-                {teacher.abbreviation ?? 'Keine Abkürzung'}
-            </p>
-        </div>
+        <a class="block " href="/teacher/{teacher.id}">
+            <div class="p-2">
+                <p class="font-extrabold">{teacher.name}</p>
+                <p class="text-sm italic text-slate-700 uppercase font-semibold">
+                    {teacher.abbreviation ?? 'Keine Abkürzung'}
+                </p>
+            </div>
+        </a>
     </QuickList>
 
     <User role={MINIMUM_ROLE.ABTEILUNGSSPRECHER}>

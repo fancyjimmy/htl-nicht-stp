@@ -38,9 +38,7 @@
         </blockquote>
         {#if quote.context}
             <div
-                    class:absolute={showTeacher}
-                    class:ml-auto={!showTeacher}
-                    class="bottom-2 left-2 text-xl text-gray-500 w-min"
+                    class="absolute bottom-2 left-2 text-xl text-gray-500 w-min"
             >
                 <Icon icon="mdi:information"/>
             </div>

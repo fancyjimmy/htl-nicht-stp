@@ -20,7 +20,7 @@
     <Navbar let:hidden let:toggle navClass=" bg-transparent dark:bg-transparent mx-0 flex justify-center" navDivClass=" border-black border-2  dark:border-slate-200 mx-0 rounded-xl flex flex-wrap justify-between items-center">
         <NavBrand href="/">
             <img src="/logo.png" alt="HTL-NICHT-STP" class="w-12 px-2">
-            <span class="self-center whitespace-nowrap text-xl font-semibold dark:text-white strike-through">HTL-STP</span>
+            <span class="self-center whitespace-nowrap text-xl font-semibold dark:text-white line-through">HTL</span>
         </NavBrand>
         <div class="flex items-center md:order-2 gap-1 px-2">
             <div class="avatar py-2 md:p-0">
@@ -35,7 +35,8 @@
 
         <NavUl {hidden} color="primary" class="border-x border-black dark:border-slate-200">
             {#each $links as link}
-                <NavLi href={link.href} active={$page.route.id?.endsWith(link.href) ?? false}>{link.name}</NavLi>
+                <NavLi href={link.href} activeClass="text-primary-500"
+                       active={$page.route.id?.endsWith(link.href) ?? false}>{link.name}</NavLi>
             {/each}
         </NavUl>
     </Navbar>

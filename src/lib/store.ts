@@ -4,7 +4,6 @@ import {profile, user} from "./supabase";
 export const links = derived(user, ($user) => {
     const standardLinks = [
         {href: "/", name: "Home"},
-        {href: "/about", name: "About"},
     ];
 
     const $profile = get(profile);
